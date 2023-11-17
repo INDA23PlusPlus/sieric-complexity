@@ -1,0 +1,61 @@
+\clearpage
+\section*{Rekursiv korrekthet}
+
+Bevisa korrekhet för denna rekursiva funktion och ange dess tidskomplexitet
+
+\begin{minted}{C}
+double expRecursive(double x, int n) {
+    if (n <= 4) {
+        return expIterative(x, n);
+    }
+
+    return expRecursive(x, n/2) *
+           expRecursive(x, (n + 1)/2);
+}
+\end{minted}
+
+\noindent Hint: Använd mästarsatsen
+
+\begin{alignat*}{2}
+  \intertext{
+Tidskomplexiteten av \texttt{expRecursive} kan bestämmas med mästarsatsen,
+$T\paren*{n}=aT\paren*{\frac{n}{b}}+f\paren*{n}$ där
+$f\paren*{n}=\Theta\paren*{1}$, $a=2$, $b=2$. Då $1=n^{0}$ och $a>1$ är
+tidskomplexiteten $\Theta\paren*{n^{\log_{b}{a}}}=\Theta\paren*{n}$.
+  }
+  \intertext{
+Funktionen \texttt{expRecursive}, kan beskrivas matematiskt som $g\paren*{x,n}$,
+där $n\in\msN$ ty definitionen av \texttt{expIterative}.
+  }
+  &g\paren*{x,n} &&=
+\begin{cases}
+  x^{n} & n\leq4 \\
+  x^{\floor{\frac{n}{2}}}x^{\ceil{\frac{n}{2}}} & n>4 \\
+\end{cases} \\
+  \iff&g\paren*{x,n} &&=
+\begin{cases}
+  x^{n} & n\leq4 \\
+  x^{\floor{\frac{n}{2}}+\ceil{\frac{n}{2}}} & n>4 \\
+\end{cases} \\
+  \intertext{
+Denna definition antar att $g\paren*{x,m} = x^{m}$ då $m\leq\ceil{\frac{n}{2}}$
+bla bla stark induktion och så vidare, men det är sant (source: trust me bro).
+Om $\floor{\frac{n}{2}}+\ceil{\frac{n}{2}}$ är lika med $n$ för alla $n$ är
+$g\paren*{x,n} = x^{n}$. Detta kan delas upp i två fall, där $n$ är udda och där
+$n$ är jämn.
+  }
+  \intertext{
+\textbf{Fall I:} $n=2k$, $k\in\msN$
+  }
+  &\HL &&=2k \\
+  &\VL &&=\floor{\frac{2k}{2}}+\ceil{\frac{2k}{2}} \\
+  \iff&\VL &&=\floor{k}+\ceil{k} \\
+  \iff&\VL &&=2k=\HL \\
+  \intertext{
+\textbf{Fall II:} $n=2k+1$, $k\in\msN$
+  }
+  &\HL &&=2k+1 \\
+  &\VL &&=\floor{\frac{2k+1}{2}}+\ceil{\frac{2k+1}{2}} \\
+  \iff&\VL &&=\floor{k+\frac{1}{2}}+\ceil{k+\frac{1}{2}} \\
+  \iff&\VL &&=2k+1=\HL \\
+\end{alignat*}

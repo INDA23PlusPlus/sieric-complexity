@@ -1,0 +1,15 @@
+.auctex-auto/
+_minted-src/
+_region_.tex
+*.aux
+*.log
+*.bbl
+*.bcf
+*.xml
+*.blg
+*.toc
+*.out
+# *.pdf
+*.synctex.*
+*.fls
+*.fdb_latexmk

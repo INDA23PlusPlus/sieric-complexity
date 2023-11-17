@@ -1,0 +1,74 @@
+\clearpage
+\section*{Induktion}
+
+\subsection*{(a)}
+
+Bevisa följande ekvation med hjälp av induktion
+
+\[\sum_{i=1}^{n}{i^{2}}=\frac{n\paren{n+1}\paren{2n+1}}{6}.\]
+
+\begin{alignat*}{2}
+  \intertext{
+\textbf{Basfall $n=1$:}
+  }
+  &\VL &&= 1^{2} = 1 \\
+  &\HL &&=\frac{1\paren{1+1}\paren{2\paren{1}+1}}{6} \\
+  \iff&\HL &&= \frac{6}{6} = 1 = \VL \\
+  \intertext{
+\textbf{Induktionsantagande:} Antag att ekvationen är sant då $n=p$.
+  }
+  \intertext{
+\textbf{Induktionssteg $n=p+1$:}
+  }
+  &\VL &&= \sum_{i=1}^{p+1}{i^{2}} \\
+  \iff&\VL &&= \paren{p+1}^{2} + \sum_{i=1}^{p}{i^{2}} \\
+  \intertext{
+Enligt induktionsantagandet är summan ovan lika med
+$\frac{p\paren{p+1}\paren{2p+1}}{6}$.
+  }
+  \iff&\VL &&= \paren{p+1}^{2} + \frac{p\paren{p+1}\paren{2p+1}}{6} \\
+  \iff&\VL &&= \frac{6\paren{p+1}^{2} + p\paren{p+1}\paren{2p+1}}{6} \\
+  % \iff&\VL &&= \frac{6p^{2}+12p+6 + 2p^{3}+3p^{2}+p}{6} \\
+  \iff&\VL &&= \frac{2p^{3}+9p^{2}+13p+6}{6} \\
+  \\
+  &\HL &&=\frac{\paren{p+1}\paren{p+1+1}\paren{2\paren{p+1}+1}}{6} \\
+  \iff&\HL &&=\frac{\paren{p+1}\paren{p+2}\paren{2p+3}}{6} \\
+  \iff&\HL &&=\frac{2p^{3}+9p^{2}+13p+6}{6} = \VL \\
+  \intertext{
+Enligt induktionsprincipen gäller ekvationen för alla $n\geq1$.
+  }
+\end{alignat*}
+
+\subsection*{(b)}
+
+
+Bevisa följande ekvation med hjälp av induktion
+
+\[\sum_{j=1}^{n}\paren{2j-1}=n^{2}.\]
+
+\begin{alignat*}{2}
+  \intertext{
+\textbf{Basfall $n=1$:}
+  }
+  &\VL &&= 2\paren{1}-1 = 1 \\
+  &\HL &&= 1^{2} = 1 = \VL \\
+  \intertext{
+\textbf{Induktionsantagande:} Antag att ekvationen är sant då $n=p$.
+  }
+  \intertext{
+\textbf{Induktionssteg $n=p+1$:}
+  }
+  &\VL &&= \sum_{j=1}^{p+1}\paren{2j-1} \\
+  \iff&\VL &&= 2\paren{p+1}-1 + \sum_{j=1}^{p}\paren{2j-1} \\
+  \intertext{
+Enligt induktionsantagandet är summan ovan lika med $p^{2}$.
+  }
+  \iff&\VL &&= 2\paren{p+1}-1 + p^{2} \\
+  \iff&\VL &&= p^{2}+2p+1 \\
+  \iff&\VL &&= \paren{p+1}^{2} \\
+  \\
+  &\HL &&= \paren{p+1}^{2} = \VL \\
+  \intertext{
+Enligt induktionsprincipen gäller ekvationen för alla $n\geq1$.
+  }
+\end{alignat*}

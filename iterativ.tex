@@ -1,0 +1,48 @@
+\clearpage
+\section*{Iterativ korrekthet}
+
+Bevisa korrekthet för denna iterativa funktion och ange dess tidskomplexitet
+
+\begin{minted}{C}
+double expIterative(double x, int n) {
+    double res = 1.0;
+
+    for (int i = 0; i < n; i++) {
+        res *= x;
+    }
+    return res;
+}
+\end{minted}
+
+\begin{alignat*}{2}
+  \intertext{
+Tidskomplexitet av \texttt{expIterative} är $O\paren*{n}$ då det är en enstaka
+for-loop. Om det initiala värdet av $\text{res}$ kallas för $\text{res}_{0}=1$
+och det resulterande värdet efter loopen för $\text{res}_{i+1}$ för alla $i<n$.
+Funktionen kan matematiskt beskrivas med rekursionen
+$\text{res}_{i+1}=x\times\text{res}_{i}$.  Dess korrekthet kan således bevisas
+med induktion:
+  }
+  \intertext{
+\textbf{Påstående:} funktionen \texttt{expIterative} returnerar värdet $x^{n}$.
+  }
+  \intertext{
+\textbf{Basfall $n=0$:} Fallet är triviellt korrekt då loopen inte kör och
+$x^{0}=1$ för alla $x$.
+  }
+  \intertext{
+\textbf{Induktionsantagande:} Antag att påståendet är sant då $n=p$.
+  }
+  \intertext{
+\textbf{Induktionssteg $n=p+1$:}
+  }
+  &\HL &&= x^{p+1} \\
+  \\
+  &\VL &&= \text{res}_{p+1} \\
+  \iff&\VL &&= \text{res}_{p} \times x \\
+  \iff&\VL &&= x^{p} \times x \\
+  \iff&\VL &&= x^{p+1} = \HL \\
+  \intertext{
+Enligt induktionsprincipen är påståendet sant för alla $n\geq0$.
+  }
+\end{alignat*}

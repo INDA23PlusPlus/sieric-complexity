@@ -1,0 +1,62 @@
+\documentclass[a4paper,11pt]{article}
+% det här är min mall från basmatten, orkar inte ändra något
+% med andra ord, ursäkta all bloat
+
+\usepackage[swedish]{babel}
+
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+
+\usepackage{amsmath}
+\usepackage{amstext}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage{array}
+\newcolumntype{L}{>{$}l<{$}}
+\newcolumntype{C}{>{$}c<{$}}
+\newcolumntype{R}{>{$}r<{$}}
+\usepackage{minted}
+
+\makeatletter
+\newcommand*{\VL}{\mathrm{VL}}
+\newcommand*{\HL}{\mathrm{HL}}
+\newcommand*{\eqlabel}[1]{\stepcounter{equation}\tag{\theequation}\label{#1}}
+\newcommand*{\paren}{\@ifstar{\!\paren@i}{\paren@i}}
+\newcommand*{\paren@i}[1]{\left({#1}\right)}
+\newcommand*{\bparen}[1]{\left[{#1}\right]}
+\newcommand*{\mset}[1]{\left\{{#1}\right\}}
+\newcommand*{\abs}[1]{\left|{#1}\right|}
+\newcommand*{\floor}[1]{\left\lfloor{#1}\right\rfloor}
+\newcommand*{\ceil}[1]{\left\lceil{#1}\right\rceil}
+\newcommand*{\pset}[1]{\mathcal{P}{\paren{#1}}}
+\newcommand*{\msR}{\mathbb{R}}
+\newcommand*{\msN}{\mathbb{N}}
+\newcommand*{\msZ}{\mathbb{Z}}
+\newcommand*{\msQ}{\mathbb{Q}}
+\newcommand*{\msC}{\mathbb{C}}
+\newcommand*{\msH}{\mathbb{H}}
+\makeatother
+
+\newcommand*{\function}[3]{{#1}\colon{#2}\longrightarrow{#3}}
+
+\usepackage{geometry}
+\geometry{
+  a4paper,
+  bottom=4cm,
+}
+
+\lhead{Emma Ericsson}
+\rhead{20040706--7677}
+
+\begin{document}
+
+\pagenumbering{gobble}
+
+\pagestyle{fancy}
+
+\input{./induktion.tex}
+\input{./iterativ.tex}
+\input{./rekursiv.tex}
+
+\end{document}
